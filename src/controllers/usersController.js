@@ -1,43 +1,50 @@
-const usersModel = require("../models/usersModel");
+const usersModel = require('../models/usersModel');
 
 const getAll = async (req, res) => {
-  const users = await usersModel.getAll();
+	const users = await usersModel.getAll();
 
-  return res.status(200).json(users);
+	return res.status(200).json(users);
 };
 
 const postCreate = async (req, res) => {
+	const user = await usersModel.postCreate(req.body);
 
-  const user = await usersModel.postCreate(req.body);
+	return res.status(201).json(user);
+};
 
-  return res.status(201).json(user);
+const addUser = async (req, res) => {
+	let { IdUserFrom, IdUserTo } = req.body;
+	const convite = await usersModel.addUser(IdUserFrom, IdUserTo);
+
+	return res.status(200).json(convite);
 };
 
 const postUpdate = async (req, res) => {
-  const id = req.params.id_user;
+	const id = req.params.id_user;
 
-  await usersModel.postUpdate(id, req.body);
+	await usersModel.postUpdate(id, req.body);
 
-  return res.status(200).json({
-    messagem: "Dados editados com sucesso",
-    code: 200,
-  });
+	return res.status(200).json({
+		messagem: 'Dados editados com sucesso',
+		code: 200,
+	});
 };
 
 const deleteUser = async (req, res) => {
-  const id = req.params.id_user;
+	const id = req.params.id_user;
 
-  await usersModel.deleteUser(id);
+	await usersModel.deleteUser(id);
 
-  return res.status(200).json({
-    messagem: "Dados excluidos com sucesso",
-    code: 200,
-  });
+	return res.status(200).json({
+		messagem: 'Dados excluidos com sucesso',
+		code: 200,
+	});
 };
 
 module.exports = {
-  getAll,
-  postCreate,
-  postUpdate,
-  deleteUser,
+	getAll,
+	postCreate,
+	postUpdate,
+	deleteUser,
+	addUser,
 };
