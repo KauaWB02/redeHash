@@ -8,18 +8,13 @@ const userRouter = express.Router();
 
 userRouter.get('/users', authMiddleware, usersController.getAll);
 
-userRouter.post(
-	'/user',
-	authMiddleware,
-	usersMiddleware.validateFieldsUser,
-	usersController.postCreate
-);
+userRouter.get('/user/:id_user', authMiddleware, usersController.getUserById);
 
 userRouter.post(
-	'/user/add',
-	authMiddleware,
-	usersMiddleware.validateAddUser,
-	usersController.addUser
+  '/user',
+  authMiddleware,
+  usersMiddleware.validateFieldsUser,
+  usersController.postCreate
 );
 
 userRouter.post('/user/:id_user', authMiddleware, usersController.postUpdate);

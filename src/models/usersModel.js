@@ -2,68 +2,67 @@ const connection = require('./connection');
 const bcrypt = require('bcrypt');
 
 const getAll = async () => {
-	const [users] = await connection.execute(
-		'SELECT * FROM users where user_deleted =? ',
-		[false]
-	);
+  const [users] = await connection.execute(
+    'SELECT * FROM users where user_deleted =? ',
+    [false]
+  );
 
-	return users;
+  return users;
 };
 
-const addUser = async (idFrom, idTo) => {
-  
-	const query =
-		'INSERT INTO users_invite(id_user_from, id_user_to) VALUES(?, ?)';
+const getUserById = async (id) => {
+  const [users] = await connection.execute(
+    'SELECT * FROM users where id =? ',
+    [id]
+  );
 
-	await connection.execute(query, [idFrom, idTo]);
-
-	return { message: 'Convite enviado!' };
+  return users;
 };
 
 const postCreate = async user => {
-	const { name, email, password } = user;
-	const created_at = new Date();
-	const salt1 = await bcrypt.genSalt(10);
+  const { name, email, password } = user;
+  const created_at = new Date();
+  const salt1 = await bcrypt.genSalt(10);
 
-	const senhaBcrypt = await bcrypt.hash(password, salt1);
+  const senhaBcrypt = await bcrypt.hash(password, salt1);
 
-	const query =
+  const query =
 		'INSERT INTO users(name, email, password, created_at) VALUES(?, ?, ?, ?)';
 
-	await connection.execute(query, [name, email, senhaBcrypt, created_at]);
+  await connection.execute(query, [name, email, senhaBcrypt, created_at]);
 };
 
 const postUpdate = async (id, user) => {
-	const { name, email, phone, password } = user;
-	let updated_at = new Date();
-	const query =
+  const { name, email, phone, password } = user;
+  let updated_at = new Date();
+  const query =
 		'UPDATE users SET name = ?, email = ?, phone = ?, password = ?, updated_at = ?, WHERE id = ?';
 
-	const updateUser = await connection.execute(query, [
-		name,
-		email,
-		phone,
-		password,
-		updated_at,
-		id,
-	]);
+  const updateUser = await connection.execute(query, [
+    name,
+    email,
+    phone,
+    password,
+    updated_at,
+    id,
+  ]);
 
-	return updateUser;
+  return updateUser;
 };
 
 const deleteUser = async id => {
-	const deleteUser = await connection.execute(
-		'UPDATE users SET updated_del = ?, user_deleted = ? where id =?',
-		[new Date(), true, id]
-	);
+  const deleteUser = await connection.execute(
+    'UPDATE users SET deleted_at = ?, user_deleted = ? where id =?',
+    [new Date(), true, id]
+  );
 
-	return deleteUser;
+  return deleteUser;
 };
 
 module.exports = {
-	getAll,
-	postCreate,
-	postUpdate,
-	deleteUser,
-  addUser
+  getAll,
+  postCreate,
+  postUpdate,
+  deleteUser,
+  getUserById
 };
