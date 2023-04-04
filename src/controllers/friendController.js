@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 const friendModel = require('../models/friendModel');
 
 const addFriend = async (req, res) => {
