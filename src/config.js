@@ -1,3 +1,3 @@
 module.exports = {
-  jwtSecret: "senai",
+  jwtSecret: 'senai',
 };

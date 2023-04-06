@@ -1,6 +1,7 @@
-const app = require('./app'); 
+/* eslint-disable no-unused-vars */
+const app = require('./app');
 const dotenv = require('dotenv').config();
 
 const PORT = process.env.PORT;
 
-app.listen(PORT, () => console.log("Server is runnig..."));
+app.listen(PORT, () => console.log('Server is runnig...'));
