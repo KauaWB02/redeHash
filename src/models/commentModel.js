@@ -2,9 +2,9 @@ const connection = require('./connection');
 
 const comment = async (idPost, body) => {
   const query =
-    'INSERT INTO post_comments(ID_USER, ID_POST, COMMENT) VALUES(?, ?, ?)';
+    'INSERT INTO post_comments(ID_USER, ID_POST, COMMENT,DATE_COMMENT) VALUES(?, ?, ?)';
 
-  await connection.execute(query, [body.idUser, idPost, body.comment]);
+  await connection.execute(query, [body.idUser, idPost, body.comment,new Date()]);
 
   return 'Comentario enviado!';
 };
