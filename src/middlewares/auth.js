@@ -1,18 +1,18 @@
-const jwt = require("jsonwebtoken");
-const config = require("../config");
+const jwt = require('jsonwebtoken');
+const config = require('../config');
 
 const authMiddleware = (req, res, next) => {
   if (!req.headers.authorization) {
     return res.status(401).json({
-      error: "Token não informado.",
+      error: 'Token não informado.',
     });
   }
 
-  const token = req.headers.authorization.split(" ")[1];
+  const token = req.headers.authorization.split(' ')[1];
 
   if (!token) {
     return res.status(401).json({
-      error: "Token não informado.",
+      error: 'Token não informado.',
     });
   }
 
@@ -20,7 +20,7 @@ const authMiddleware = (req, res, next) => {
     if (err) {
       console.log(err);
       return res.status(401).json({
-        error: "Token informado é invalido!",
+        error: 'Token informado é invalido!',
       });
     }
 
