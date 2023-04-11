@@ -6,7 +6,7 @@ const authMiddleware = require('../middlewares/auth');
 
 const userRouter = express.Router();
 
-userRouter.get('/users', authMiddleware, usersController.getAll);
+userRouter.get('/users', usersController.getAll);
 
 userRouter.get('/user/:id_user', authMiddleware, usersController.getUserById);
 

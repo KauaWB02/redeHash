@@ -19,7 +19,7 @@ const getUserById = async (id) => {
   return users;
 };
 
-const postCreate = async user => {
+const postCreate = async (user) => {
   const { name, email, password } = user;
   const created_at = new Date();
   const salt1 = await bcrypt.genSalt(10);
@@ -50,7 +50,7 @@ const postUpdate = async (id, user) => {
   return updateUser;
 };
 
-const deleteUser = async id => {
+const deleteUser = async (id) => {
   const deleteUser = await connection.execute(
     'UPDATE users SET deleted_at = ?, user_deleted = ? where id =?',
     [new Date(), true, id]

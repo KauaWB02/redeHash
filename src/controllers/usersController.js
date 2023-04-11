@@ -3,6 +3,7 @@ const usersModel = require('../models/usersModel');
 const getAll = async (req, res) => {
   const users = await usersModel.getAll();
 
+  console.log(users);
   return res.status(200).json(users);
 };
 
@@ -12,7 +13,6 @@ const getUserById = async (req, res) => {
 
   return res.status(200).json(user);
 };
-
 
 const postCreate = async (req, res) => {
   const user = await usersModel.postCreate(req.body);
@@ -47,5 +47,5 @@ module.exports = {
   postCreate,
   postUpdate,
   deleteUser,
-  getUserById
+  getUserById,
 };
