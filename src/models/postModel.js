@@ -13,7 +13,6 @@ const createPost = async (id_user, body) => {
 };
 
 const selectPosts = async (idPostUser, idUser) => {
-  console.log(idPostUser, idUser);
 
   const query =
     'SELECT DISTINCT post.ID_USER, post.id,users.NAME, post.TITLE, post.URL_IMAGE, post.DESCRIPTION, post.DATE_CREATED FROM POST AS post INNER JOIN USERS AS users ON post.id_user = users.id LEFT JOIN (SELECT id_user, id_friend FROM USERS_FRIENDS WHERE id_user = ? OR id_friend = ?) AS friend ON post.id_user = friend.id_user WHERE friend.id_user IS NOT NULL OR post.id_user = ?';
