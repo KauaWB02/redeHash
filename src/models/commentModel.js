@@ -2,9 +2,14 @@ const connection = require('./connection');
 
 const comment = async (idPost, body) => {
   const query =
-    'INSERT INTO post_comments(ID_USER, ID_POST, COMMENT,DATE_COMMENT) VALUES(?, ?, ?)';
+    'INSERT INTO post_comments(ID_USER, ID_POST, COMMENT,DATE_COMMENT) VALUES(?, ?, ?,?)';
 
-  await connection.execute(query, [body.idUser, idPost, body.comment,new Date()]);
+  await connection.execute(query, [
+    body.idUser,
+    idPost,
+    body.comment,
+    new Date(),
+  ]);
 
   return 'Comentario enviado!';
 };
@@ -19,7 +24,7 @@ const findCommentById = async (id) => {
 
 const ListComments = async (idPost) => {
   const query =
-    'SELECT post.id,user.name,post.comment,date_comment FROM post_comments AS post LEFT JOIN users AS user ON post.ID_USER = user.ID WHERE post.ID_POST = ?';
+    'SELECT post.id_user,post.id,user.name,post.comment,date_comment FROM post_comments AS post LEFT JOIN users AS user ON post.ID_USER = user.ID WHERE post.ID_POST = ? order by 1 desc';
 
   let [comment] = await connection.execute(query, [idPost]);
 

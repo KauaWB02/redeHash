@@ -11,13 +11,14 @@ const createPost = async (req, res) => {
 };
 
 const getAllPost = async (req, res) => {
-  const {id_user} = req.params;
+  const {id_post} = req.params;
+  const {userId} = req;
 
-  let post = await postModel.selectPosts(id_user);
+  let post = await postModel.selectPosts(id_post, userId);
 
   for (const dadosPost of post) {
     let comments = await commentModel.ListComments(dadosPost.id);
-    dadosPost.comments = comments;
+    dadosPost.COMMENTS = comments;
   }
 
   return res.status(200).json(post);
@@ -36,7 +37,6 @@ const getPostById = async (req, res) => {
 const deletePost = async (req, res) => {
   const {id_post} = req.params;
   let post = await postModel.deletePost(id_post);
-
 
   return res.status(200).send(post);
 };

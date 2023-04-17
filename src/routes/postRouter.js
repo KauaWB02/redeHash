@@ -12,8 +12,7 @@ postRouter.post(
   validateCreatePost,
   postController.createPost
 );
-
-postRouter.get('/list/:id_user', authMiddleware, postController.getAllPost);
+postRouter.get('/list/:id_post', authMiddleware, postController.getAllPost);
 postRouter.get('/:id_post', authMiddleware, postController.getPostById);
 postRouter.delete('/delete/:id_post', authMiddleware, postController.deletePost);
 

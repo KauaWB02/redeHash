@@ -54,10 +54,19 @@ const findFriends = async (req, res) => {
   return res.status(200).send(requests[0]);
 };
 
+const excluirFriend = async (req, res) => {
+  let {id} = req.params;
+
+  await friendModel.excluirFriend(id);
+
+  return res.status(200).send('Amigo excluido!');
+};
+
 module.exports = {
   addFriend,
   refuseFriend,
   acceptFriend,
   findRequestFriend,
   findFriends,
+  excluirFriend,
 };

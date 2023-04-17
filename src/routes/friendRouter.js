@@ -31,6 +31,13 @@ friendRouter.post(
 );
 
 friendRouter.delete(
+  '/delete/:id',
+  authMiddleware,
+  friendController.excluirFriend
+);
+
+
+friendRouter.delete(
   '/invite/refuse',
   authMiddleware,
   validateAddFriend,

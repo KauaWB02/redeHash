@@ -3,7 +3,13 @@ const usersModel = require('../models/usersModel');
 const getAll = async (req, res) => {
   const users = await usersModel.getAll();
 
-  console.log(users);
+  return res.status(200).json(users);
+};
+
+const getAllUsers = async (req, res) => {
+  let {id_user_login} = req.params;
+  const users = await usersModel.getAllUsers(id_user_login);
+
   return res.status(200).json(users);
 };
 
@@ -15,9 +21,9 @@ const getUserById = async (req, res) => {
 };
 
 const postCreate = async (req, res) => {
-  const user = await usersModel.postCreate(req.body);
+  await usersModel.postCreate(req.body);
 
-  return res.status(201).json(user);
+  return res.status(201).json('Usuário registrado com sucesso!');
 };
 
 const postUpdate = async (req, res) => {
@@ -48,4 +54,5 @@ module.exports = {
   postUpdate,
   deleteUser,
   getUserById,
+  getAllUsers,
 };

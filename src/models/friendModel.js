@@ -19,7 +19,7 @@ const addFriend = async (idFrom, idTo) => {
 
 const findRequestFriend = async (id) => {
   const query =
-    'SELECT u.name FROM users_invite as i inner join users AS u on i.ID_USER_FROM = u.id WHERE ID_USER_TO = ?;';
+    'SELECT u.NAME,i.ID_USER_FROM FROM users_invite as i inner join users AS u on i.ID_USER_FROM = u.id WHERE ID_USER_TO = ?;';
   let requestFriends = connection.execute(query, [id]);
 
   return requestFriends;
@@ -27,7 +27,7 @@ const findRequestFriend = async (id) => {
 
 const findFriends = async (id) => {
   const query =
-    'SELECT u.NAME,i.ID_USER,i.ID_FRIEND FROM users_friends as i inner join users AS u on i.ID_FRIEND = u.id WHERE i.ID_USER = ?;';
+    'SELECT u.NAME,i.ID FROM users_friends as i inner join users AS u on i.ID_FRIEND = u.id WHERE i.ID_USER = ?;';
   let requestFriends = connection.execute(query, [id]);
 
   return requestFriends;
@@ -54,6 +54,24 @@ const refuseFriend = async (idFrom, idTo) => {
   );
 };
 
+const excluirFriend = async (id) => {
+  //SELECT * FROM users_friends id = ?;
+  let [users] = await connection.execute(
+    'SELECT * FROM users_friends where id = ?',
+    [id]
+  );
+
+  await connection.execute(
+    'delete from users_friends where id_user = ? and id_friend = ?;',
+    [users[0].id_user, users[0].id_friend]
+  );
+
+  await connection.execute(
+    'delete from users_friends where id_user = ? and id_friend = ?;',
+    [users[0].id_friend, users[0].id_user]
+  );
+};
+
 module.exports = {
   addFriend,
   refuseFriend,
@@ -61,4 +79,5 @@ module.exports = {
   selectFromId,
   findRequestFriend,
   findFriends,
+  excluirFriend,
 };

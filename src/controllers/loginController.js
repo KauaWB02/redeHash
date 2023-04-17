@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const config = require('../config');
 
 const login = async (req, res) => {
-  const { email, password } = req.body;
+  const {email, password} = req.body;
 
   if (email == null || password == null) {
     return res.status(401).json({
@@ -18,38 +18,23 @@ const login = async (req, res) => {
     return res.status(200).send('Email ou senha estão incorretos.');
   }
 
+  if (bcrypt.compareSync(password, userFind[0].password)) {
+    const token = jwt.sign(userFind[0], config.jwtSecret);
 
-  if (userFind[0].email != 'admin@gmail.com') {
-    if (bcrypt.compareSync(password, userFind[0].password)) {
-      const token = jwt.sign(userFind[0], config.jwtSecret);
-
-      return res.json({
-        user: {
-          id: userFind[0].id,
-          name: userFind[0].name,
-          email: userFind[0].email,
-          created_at: userFind[0].created_at,
-        },
-        token: token,
-      });
-    } else {
-      return res.status(401).json({
-        error: 'Email ou senha estão incorretos.',
-      });
-    }
+    return res.json({
+      user: {
+        id: userFind[0].id,
+        name: userFind[0].name,
+        email: userFind[0].email,
+        created_at: userFind[0].created_at,
+      },
+      token: token,
+    });
+  } else {
+    return res.status(401).json({
+      error: 'Email ou senha estão incorretos.',
+    });
   }
-
-  const token = jwt.sign(userFind[0], config.jwtSecret);
-
-  return res.json({
-    user: {
-      id: userFind[0].id,
-      name: userFind[0].name,
-      email: userFind[0].email,
-      created_at: userFind[0].created_at,
-    },
-    token: token,
-  });
 };
 
 module.exports = {

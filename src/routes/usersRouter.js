@@ -7,12 +7,12 @@ const authMiddleware = require('../middlewares/auth');
 const userRouter = express.Router();
 
 userRouter.get('/users', usersController.getAll);
+userRouter.get('/users/:id_user_login', usersController.getAllUsers);
 
 userRouter.get('/user/:id_user', authMiddleware, usersController.getUserById);
 
 userRouter.post(
   '/user',
-  authMiddleware,
   usersMiddleware.validateFieldsUser,
   usersController.postCreate
 );
