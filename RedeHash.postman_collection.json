@@ -1,0 +1,634 @@
+{
+	"info": {
+		"_postman_id": "b07e2d47-949c-4f29-9f20-955e5ba40088",
+		"name": "RedeHash",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26175820"
+	},
+	"item": [
+		{
+			"name": "User Routers",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"testando@gmail.com\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find all users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IktzdcOjIFdhZHNvbiIsImVtYWlsIjoiV2Fkc29uQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJDhhMnJZYjVEdU9JckpzNG9JeHdjZU9hbW53SE9TbXBQZ1VkbmRhdEtHNy5BalNqOFFmalFXIiwidXBkYXRlZF9hdCI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDQtMDJUMDM6MDA6MDAuMDAwWiIsImRlbGV0ZWRfYXQiOm51bGwsInVzZXJfZGVsZXRlZCI6MCwiaWF0IjoxNjgwNDY4MTMzfQ.ExLNmGW4dCv76b2P4OCPPZZQBbpjr_5epLaasOT8eAs",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{host}}/users",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Seleciona usuarios que não são amigos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IktzdcOjIFdhZHNvbiIsImVtYWlsIjoiV2Fkc29uQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJDhhMnJZYjVEdU9JckpzNG9JeHdjZU9hbW53SE9TbXBQZ1VkbmRhdEtHNy5BalNqOFFmalFXIiwidXBkYXRlZF9hdCI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDQtMDJUMDM6MDA6MDAuMDAwWiIsImRlbGV0ZWRfYXQiOm51bGwsInVzZXJfZGVsZXRlZCI6MCwiaWF0IjoxNjgwNDY4MTMzfQ.ExLNmGW4dCv76b2P4OCPPZZQBbpjr_5epLaasOT8eAs",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{host}}/users/3",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IktzdcOjIFdhZHNvbiIsImVtYWlsIjoiV2Fkc29uQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJDhhMnJZYjVEdU9JckpzNG9JeHdjZU9hbW53SE9TbXBQZ1VkbmRhdEtHNy5BalNqOFFmalFXIiwidXBkYXRlZF9hdCI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDQtMDJUMDM6MDA6MDAuMDAwWiIsImRlbGV0ZWRfYXQiOm51bGwsInVzZXJfZGVsZXRlZCI6MCwiaWF0IjoxNjgwNDY4MTMzfQ.ExLNmGW4dCv76b2P4OCPPZZQBbpjr_5epLaasOT8eAs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Testando\",\r\n    \"email\": \"aaaaqweqweqweqqaa@gmail.com\" ,\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/user",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IktzdcOjIFdhZHNvbiIsImVtYWlsIjoiV2Fkc29uQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJDhhMnJZYjVEdU9JckpzNG9JeHdjZU9hbW53SE9TbXBQZ1VkbmRhdEtHNy5BalNqOFFmalFXIiwidXBkYXRlZF9hdCI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDQtMDJUMDM6MDA6MDAuMDAwWiIsImRlbGV0ZWRfYXQiOm51bGwsInVzZXJfZGVsZXRlZCI6MCwiaWF0IjoxNjgwNDY4MTMzfQ.ExLNmGW4dCv76b2P4OCPPZZQBbpjr_5epLaasOT8eAs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"QEQWEWEQEqweqe\",\r\n    \"email\": \"testando@gmail.com\" ,\r\n    \"password\": \"1234567\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/user/3",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find user by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IktzdcOjIFdhZHNvbiIsImVtYWlsIjoiV2Fkc29uQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJDhhMnJZYjVEdU9JckpzNG9JeHdjZU9hbW53SE9TbXBQZ1VkbmRhdEtHNy5BalNqOFFmalFXIiwidXBkYXRlZF9hdCI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDQtMDJUMDM6MDA6MDAuMDAwWiIsImRlbGV0ZWRfYXQiOm51bGwsInVzZXJfZGVsZXRlZCI6MCwiaWF0IjoxNjgwNDY4MTMzfQ.ExLNmGW4dCv76b2P4OCPPZZQBbpjr_5epLaasOT8eAs",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/user/3",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IktzdcOjIFdhZHNvbiIsImVtYWlsIjoiV2Fkc29uQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJDhhMnJZYjVEdU9JckpzNG9JeHdjZU9hbW53SE9TbXBQZ1VkbmRhdEtHNy5BalNqOFFmalFXIiwidXBkYXRlZF9hdCI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDQtMDJUMDM6MDA6MDAuMDAwWiIsImRlbGV0ZWRfYXQiOm51bGwsInVzZXJfZGVsZXRlZCI6MCwiaWF0IjoxNjgwNDY4MTMzfQ.ExLNmGW4dCv76b2P4OCPPZZQBbpjr_5epLaasOT8eAs",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/user/:id_user",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								":id_user"
+							],
+							"variable": [
+								{
+									"key": "id_user",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Friend Routers",
+			"item": [
+				{
+					"name": "Add friend",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IktzdcOjIFdhZHNvbiIsImVtYWlsIjoiV2Fkc29uQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJDhhMnJZYjVEdU9JckpzNG9JeHdjZU9hbW53SE9TbXBQZ1VkbmRhdEtHNy5BalNqOFFmalFXIiwidXBkYXRlZF9hdCI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDQtMDJUMDM6MDA6MDAuMDAwWiIsImRlbGV0ZWRfYXQiOm51bGwsInVzZXJfZGVsZXRlZCI6MCwiaWF0IjoxNjgwNDY4MTMzfQ.ExLNmGW4dCv76b2P4OCPPZZQBbpjr_5epLaasOT8eAs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"IdUserFrom\": 2,\r\n    \"IdUserTo\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/friend/add",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"friend",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refuse friend",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IktzdcOjIFdhZHNvbiIsImVtYWlsIjoiV2Fkc29uQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJDhhMnJZYjVEdU9JckpzNG9JeHdjZU9hbW53SE9TbXBQZ1VkbmRhdEtHNy5BalNqOFFmalFXIiwidXBkYXRlZF9hdCI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDQtMDJUMDM6MDA6MDAuMDAwWiIsImRlbGV0ZWRfYXQiOm51bGwsInVzZXJfZGVsZXRlZCI6MCwiaWF0IjoxNjgwNDY4MTMzfQ.ExLNmGW4dCv76b2P4OCPPZZQBbpjr_5epLaasOT8eAs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"IdUserFrom\": 2,\r\n    \"IdUserTo\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/friend/invite/refuse",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"friend",
+								"invite",
+								"refuse"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Accep friend",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IktzdcOjIFdhZHNvbiIsImVtYWlsIjoiV2Fkc29uQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJDhhMnJZYjVEdU9JckpzNG9JeHdjZU9hbW53SE9TbXBQZ1VkbmRhdEtHNy5BalNqOFFmalFXIiwidXBkYXRlZF9hdCI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDQtMDJUMDM6MDA6MDAuMDAwWiIsImRlbGV0ZWRfYXQiOm51bGwsInVzZXJfZGVsZXRlZCI6MCwiaWF0IjoxNjgwNTI3MzQ3fQ.wnVPhCleX9GrHFcjWIiCGn--gvG8cvRyry1kqDVXoGw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idUserRequest\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/friend/invite/accept/:id_user_login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"friend",
+								"invite",
+								"accept",
+								":id_user_login"
+							],
+							"variable": [
+								{
+									"key": "id_user_login",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Request friends",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IktzdcOjIFdhZHNvbiIsImVtYWlsIjoiV2Fkc29uQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJDhhMnJZYjVEdU9JckpzNG9JeHdjZU9hbW53SE9TbXBQZ1VkbmRhdEtHNy5BalNqOFFmalFXIiwidXBkYXRlZF9hdCI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDQtMDJUMDM6MDA6MDAuMDAwWiIsImRlbGV0ZWRfYXQiOm51bGwsInVzZXJfZGVsZXRlZCI6MCwiaWF0IjoxNjgwNTI3MzQ3fQ.wnVPhCleX9GrHFcjWIiCGn--gvG8cvRyry1kqDVXoGw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/friend/invites/:id_user",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"friend",
+								"invites",
+								":id_user"
+							],
+							"variable": [
+								{
+									"key": "id_user",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find friends",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IktzdcOjIFdhZHNvbiIsImVtYWlsIjoiV2Fkc29uQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJDhhMnJZYjVEdU9JckpzNG9JeHdjZU9hbW53SE9TbXBQZ1VkbmRhdEtHNy5BalNqOFFmalFXIiwidXBkYXRlZF9hdCI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDQtMDJUMDM6MDA6MDAuMDAwWiIsImRlbGV0ZWRfYXQiOm51bGwsInVzZXJfZGVsZXRlZCI6MCwiaWF0IjoxNjgwNTI3MzQ3fQ.wnVPhCleX9GrHFcjWIiCGn--gvG8cvRyry1kqDVXoGw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/friend/:id_user",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"friend",
+								":id_user"
+							],
+							"variable": [
+								{
+									"key": "id_user",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir amigo",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IktzdcOjIFdhZHNvbiIsImVtYWlsIjoiV2Fkc29uQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJDhhMnJZYjVEdU9JckpzNG9JeHdjZU9hbW53SE9TbXBQZ1VkbmRhdEtHNy5BalNqOFFmalFXIiwidXBkYXRlZF9hdCI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDQtMDJUMDM6MDA6MDAuMDAwWiIsImRlbGV0ZWRfYXQiOm51bGwsInVzZXJfZGVsZXRlZCI6MCwiaWF0IjoxNjgwNTI3MzQ3fQ.wnVPhCleX9GrHFcjWIiCGn--gvG8cvRyry1kqDVXoGw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/friend/delete/39",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"friend",
+								"delete",
+								"39"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post Routers",
+			"item": [
+				{
+					"name": "CREATE POST",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IktzdcOjIFdhZHNvbiIsImVtYWlsIjoiV2Fkc29uQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJDhhMnJZYjVEdU9JckpzNG9JeHdjZU9hbW53SE9TbXBQZ1VkbmRhdEtHNy5BalNqOFFmalFXIiwidXBkYXRlZF9hdCI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDQtMDJUMDM6MDA6MDAuMDAwWiIsImRlbGV0ZWRfYXQiOm51bGwsInVzZXJfZGVsZXRlZCI6MCwiaWF0IjoxNjgwNTI3MzQ3fQ.wnVPhCleX9GrHFcjWIiCGn--gvG8cvRyry1kqDVXoGw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"One peice\",\r\n    \"description\": \"Testando aqui pacero\",\r\n    \"url_image\": \"https://classic.exame.com/wp-content/uploads/2022/08/legiao_KF_0ISahE3nA.jpg?quality=70&strip=info&w=1024\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/post/create/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"post",
+								"create",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Select post",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywibmFtZSI6IkpVQklMRVUiLCJlbWFpbCI6InRlc3RhbmRvQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJHNzeWsyQWZFS01wa0VSV1R3QWI1aHVyckg0NGt4Sk1rbFV0THpPaEUvTnAwS3BlOXJyWlltIiwidXBkYXRlZF9hdCI6IjIwMjMtMDQtMTZUMDM6MDA6MDAuMDAwWiIsImNyZWF0ZWRfYXQiOiIyMDIzLTA0LTA1VDAzOjAwOjAwLjAwMFoiLCJkZWxldGVkX2F0IjpudWxsLCJ1c2VyX2RlbGV0ZWQiOjAsImlhdCI6MTY4MTY5NzI1MH0.S3qf3imcC-iBsqel6BLXomyn_kF8otpRyJe-84RFkmM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/post/list/3",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"post",
+								"list",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Select post by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IktzdcOjIFdhZHNvbiIsImVtYWlsIjoiV2Fkc29uQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJDhhMnJZYjVEdU9JckpzNG9JeHdjZU9hbW53SE9TbXBQZ1VkbmRhdEtHNy5BalNqOFFmalFXIiwidXBkYXRlZF9hdCI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDQtMDJUMDM6MDA6MDAuMDAwWiIsImRlbGV0ZWRfYXQiOm51bGwsInVzZXJfZGVsZXRlZCI6MCwiaWF0IjoxNjgwNTI3MzQ3fQ.wnVPhCleX9GrHFcjWIiCGn--gvG8cvRyry1kqDVXoGw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/post/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"post",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete post",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IktzdcOjIFdhZHNvbiIsImVtYWlsIjoiV2Fkc29uQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJDhhMnJZYjVEdU9JckpzNG9JeHdjZU9hbW53SE9TbXBQZ1VkbmRhdEtHNy5BalNqOFFmalFXIiwidXBkYXRlZF9hdCI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDQtMDJUMDM6MDA6MDAuMDAwWiIsImRlbGV0ZWRfYXQiOm51bGwsInVzZXJfZGVsZXRlZCI6MCwiaWF0IjoxNjgwNTI3MzQ3fQ.wnVPhCleX9GrHFcjWIiCGn--gvG8cvRyry1kqDVXoGw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/post/delete/4",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"post",
+								"delete",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comment Routers",
+			"item": [
+				{
+					"name": "Create comment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IktzdcOjIFdhZHNvbiIsImVtYWlsIjoiV2Fkc29uQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJDhhMnJZYjVEdU9JckpzNG9JeHdjZU9hbW53SE9TbXBQZ1VkbmRhdEtHNy5BalNqOFFmalFXIiwidXBkYXRlZF9hdCI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDQtMDJUMDM6MDA6MDAuMDAwWiIsImRlbGV0ZWRfYXQiOm51bGwsInVzZXJfZGVsZXRlZCI6MCwiaWF0IjoxNjgwNTI3MzQ3fQ.wnVPhCleX9GrHFcjWIiCGn--gvG8cvRyry1kqDVXoGw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idUser\": 1,\r\n    \"comment\": \"aaaaaaaaaaa melhor anime\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/comment/create/5",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"comment",
+								"create",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List comments for id post",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IktzdcOjIFdhZHNvbiIsImVtYWlsIjoiV2Fkc29uQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJDhhMnJZYjVEdU9JckpzNG9JeHdjZU9hbW53SE9TbXBQZ1VkbmRhdEtHNy5BalNqOFFmalFXIiwidXBkYXRlZF9hdCI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDQtMDJUMDM6MDA6MDAuMDAwWiIsImRlbGV0ZWRfYXQiOm51bGwsInVzZXJfZGVsZXRlZCI6MCwiaWF0IjoxNjgwNTI3MzQ3fQ.wnVPhCleX9GrHFcjWIiCGn--gvG8cvRyry1kqDVXoGw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"testando\",\r\n    \"url_image\": \"https://teste.com.br/img\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/comment/list/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"comment",
+								"list",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete comment",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IktzdcOjIFdhZHNvbiIsImVtYWlsIjoiV2Fkc29uQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJDhhMnJZYjVEdU9JckpzNG9JeHdjZU9hbW53SE9TbXBQZ1VkbmRhdEtHNy5BalNqOFFmalFXIiwidXBkYXRlZF9hdCI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDQtMDJUMDM6MDA6MDAuMDAwWiIsImRlbGV0ZWRfYXQiOm51bGwsInVzZXJfZGVsZXRlZCI6MCwiaWF0IjoxNjgwNTI3MzQ3fQ.wnVPhCleX9GrHFcjWIiCGn--gvG8cvRyry1kqDVXoGw",
+								"type": "text"
+							},
+							{
+								"key": "idUser",
+								"value": "2",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/comment/delete/7",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"comment",
+								"delete",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
